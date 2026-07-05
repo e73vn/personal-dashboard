@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evan Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <p class="eyebrow" id="dateText">Today</p>
+      <h1 id="greeting">Dashboard</h1>
+      <p class="sub">small tasks to do everyday</p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>today</h2>
+        <textarea id="todayNote" placeholder="what’s the plan today?"></textarea>
+      </article>
+
+      <article class="card">
+        <h2>rate day</h2>
+        <input id="rateDay" type="range" min="0" max="10" value="5" />
+        <p><span id="rateDayValue">5</span>/10</p>
+      </article>
+
+      <article class="card">
+        <h2>how many hours studied?</h2>
+        <input id="studied-hours" type="range" min="0" max="10" value="5" />
+        <p><span id="studiedHoursValue">5</span>/10</p>
+      </article>
+
+      <article class="card">
+        <h2>reading</h2>
+        <input id="book" placeholder="book title" />
+        <input id="readingGoal" placeholder="1 chapter a day" />
+      </article>
+
+      <article class="card">
+        <h2>walter</h2>
+        <textarea id="walterNote" placeholder="Outside training, food, behaviour..."></textarea>
+      </article>
+
+      <article class="card">
+        <h2>plant</h2>
+        <input id="plant" placeholder="watered + any new growth?" />
+      </article>
+
+      <article class="card">
+        <h2>food</h2>
+        <input id="food" placeholder="breakfast / lunch / dinner" />
+      </article>
+
+      <article class="card">
+        <h2>tasks</h2>
+        <input id="tinyTask" placeholder="clear desk, read 2 pages..." />
+      </article>
+    </section>
+
+    <button id="resetBtn">clear today</button>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
