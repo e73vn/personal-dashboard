@@ -1,7 +1,7 @@
 const fields = [
   "todayNote",
-  "brainFog",
-  "numbness",
+  "rateDay",
+  "studied-hours",
   "book",
   "readingGoal",
   "walterNote",
@@ -12,10 +12,12 @@ const fields = [
 
 const dateText = document.querySelector("#dateText");
 const greeting = document.querySelector("#greeting");
-const brainFogValue = document.querySelector("#brainFogValue");
-const numbnessValue = document.querySelector("#numbnessValue");
+
+const rateDayValue = document.querySelector("#rateDayValue");
+const studiedHoursValue = document.querySelector("#studiedHoursValue");
 
 const now = new Date();
+
 dateText.textContent = now.toLocaleDateString("en-GB", {
   weekday: "long",
   day: "numeric",
@@ -23,7 +25,12 @@ dateText.textContent = now.toLocaleDateString("en-GB", {
 });
 
 const hour = now.getHours();
-greeting.textContent = hour < 12 ? "Good morning, Evan" : hour < 18 ? "Good afternoon, Evan" : "Good evening, Evan";
+greeting.textContent =
+  hour < 12
+    ? "Good morning, Evan"
+    : hour < 18
+    ? "Good afternoon, Evan"
+    : "Good evening, Evan";
 
 function saveField(id) {
   const el = document.getElementById(id);
@@ -37,13 +44,14 @@ function loadField(id) {
 }
 
 function updateNumbers() {
-  brainFogValue.textContent = document.getElementById("brainFog").value;
-  numbnessValue.textContent = document.getElementById("numbness").value;
+  rateDayValue.textContent = document.getElementById("rateDay").value;
+  studiedHoursValue.textContent = document.getElementById("studied-hours").value;
 }
 
 fields.forEach((id) => {
   const el = document.getElementById(id);
   loadField(id);
+
   el.addEventListener("input", () => {
     saveField(id);
     updateNumbers();
@@ -54,6 +62,7 @@ updateNumbers();
 
 document.getElementById("resetBtn").addEventListener("click", () => {
   if (!confirm("Clear today’s dashboard?")) return;
+
   fields.forEach((id) => localStorage.removeItem(`dashboard-${id}`));
   location.reload();
 });
